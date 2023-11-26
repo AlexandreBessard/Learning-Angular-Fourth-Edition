@@ -8,15 +8,20 @@ import { Product } from '../product';
 })
 export class ProductDetailComponent implements OnChanges {
 
-  @Input() product: Product | undefined;
-  @Output() bought = new EventEmitter();
+  @Input()
+  product: Product | undefined;
+
+  @Output()
+  bought = new EventEmitter();
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log("--?>");
+    console.log(changes);
     const product = changes['product'];
     if (!product.isFirstChange()) {
       const oldValue = product.previousValue.name;
       const newValue = product.currentValue.name;
-      console.log(`Product changed from ${oldValue} to ${newValue}`);
+      console.log(`Product changed from ${oldValue} to ${newValue}`);
     }
   }
 

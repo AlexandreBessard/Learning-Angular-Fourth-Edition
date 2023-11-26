@@ -10,7 +10,10 @@ import { Product } from '../product';
 export class ProductListComponent implements AfterViewInit {
 
   selectedProduct: Product | undefined;
-  @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
+
+  @ViewChild(ProductDetailComponent)
+  productDetail: ProductDetailComponent | undefined;
+
   products: Product[] = [
     {
       name: 'Webcam',

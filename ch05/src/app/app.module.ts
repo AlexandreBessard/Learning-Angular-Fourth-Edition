@@ -6,6 +6,8 @@ import { ProductsModule } from './products/products.module';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
 import { PermissionDirective } from './permission.directive';
+import {FilterPipe} from './filter.pipe';
+import {AutofocusDirective} from './autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,11 @@ import { PermissionDirective } from './permission.directive';
   ],
   imports: [
     BrowserModule,
-    ProductsModule
+    ProductsModule,
+    // standalone pipe, does not add it to the declarations because it is not a module (Standalone)
+    FilterPipe,
+    // Standalone directive
+    AutofocusDirective
   ],
   providers: [],
   bootstrap: [AppComponent]

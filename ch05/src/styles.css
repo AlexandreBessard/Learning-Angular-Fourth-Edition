@@ -43,12 +43,18 @@ li {
   font-weight: normal;
 }
 
+/*
+Used by directive
+ */
 .copyright {
   background-color: lightgray;
   padding: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/*
+css used by directive
+ */
 .valid {
   border-bottom: solid green;
 }
