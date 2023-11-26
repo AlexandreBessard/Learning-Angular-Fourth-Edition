@@ -1,5 +1,6 @@
 <h2>Product List</h2>
 <ul>
+  <!-- async -> automatically subscribe to an observable and unsubscribes when the component is destroyed -->
   <li
     *ngFor="let product of (products$ | async)! | sort; let i=index"
     (click)="selectedProduct = product">

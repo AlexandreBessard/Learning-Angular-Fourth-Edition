@@ -14,7 +14,9 @@ export class ProductListComponent implements OnDestroy, OnInit, AfterViewInit {
 
   selectedProduct: Product | undefined;
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
+
   products$: Observable<Product[]> | undefined;
+
   private productsSub: Subscription | undefined;
 
   constructor(private productService: ProductsService) {}

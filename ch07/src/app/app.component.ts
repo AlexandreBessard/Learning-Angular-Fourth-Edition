@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import {count, from, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'my-app';
+
+  count: number = 0;
+
   title$ = new Observable(observer => {
     setInterval(() => {
       observer.next();
@@ -16,11 +19,15 @@ export class AppComponent {
 
   constructor() {
     this.title$.subscribe(this.setTitle);
+    // this.onComplete().then(this.setTitle);
+/*    const complete$ = from(this.onComplete());
+    complete$.subscribe(this.setTitle);*/
   }
 
   private setTitle = () => {
     const timestamp = new Date().getMilliseconds();
-    this.title = `Learning Angular (${timestamp})`;
+    this.count++;
+    this.title = `Learning Angular (${timestamp}), ${this.count}`;
   }
 
   private changeTitle(callback: Function) {
@@ -30,6 +37,7 @@ export class AppComponent {
   }
 
   private onComplete() {
+    // resolve parameter indicates that the promise was completed successfully or rejected
     return new Promise<void>(resolve => {
       setInterval(() => {
         resolve();

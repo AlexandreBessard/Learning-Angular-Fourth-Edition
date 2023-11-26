@@ -12,11 +12,13 @@ export class ProductViewComponent implements OnDestroy, OnInit {
 
   @Input() id = -1;
   name = '';
+
   private productSub = new Subject<void>();
 
   constructor(private productviewService: ProductViewService) { }
 
   ngOnDestroy(): void {
+    // emit any last values to its subscribers
     this.productSub.next();
     this.productSub.complete();
   }
@@ -26,9 +28,11 @@ export class ProductViewComponent implements OnDestroy, OnInit {
   }
 
   private getProduct() {
-    this.productviewService.getProduct(this.id).pipe(
-      takeUntil(this.productSub)
-    ).subscribe(product => {
+    this.productviewService.getProduct(this.id)
+      .pipe(
+        // operator that unsubscribes from an observable when it completes
+        takeUntil(this.productSub))
+      .subscribe(product => {
       if (product) {
         this.name = product.name;
       }
