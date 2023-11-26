@@ -10,6 +10,7 @@ import { ProductsModule } from './products/products.module';
   ],
   imports: [
     BrowserModule,
+    // use <app-product-list>, this module exports ProductListComponent
     ProductsModule
   ],
   providers: [],

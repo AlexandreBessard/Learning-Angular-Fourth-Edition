@@ -6,13 +6,20 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements AfterViewInit {
+export class ProductListComponent
+  // HTML template of the components has been initialized, or templates of all child components have been initialized
+  implements AfterViewInit {
 
-  selectedProduct = '';
-  @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
+  selectedProduct = 'Microphone';
+
+  // query component child from the parent component
+  @ViewChild(ProductDetailComponent)
+  productDetail: ProductDetailComponent | undefined;
 
   ngAfterViewInit(): void {
+    // not null
     if (this.productDetail) {
+      console.log("-----> ");
       console.log(this.productDetail.name);
     }
   }

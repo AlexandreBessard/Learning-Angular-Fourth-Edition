@@ -4,4 +4,7 @@
   <li (click)="selectedProduct = 'Microphone'">Microphone</li>
   <li (click)="selectedProduct = 'Wireless Keyboard'">Wireless Keyboard</li>
 </ul>
-<app-product-detail [name]="selectedProduct" (bought)="onBuy()"></app-product-detail>
+<!-- from bought to the method onBuy() -->
+<app-product-detail [name]="selectedProduct" #product (bought)="onBuy()"></app-product-detail>
+<br>
+<span>{{product.name}}</span>
