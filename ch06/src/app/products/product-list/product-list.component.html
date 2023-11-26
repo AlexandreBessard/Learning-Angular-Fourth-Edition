@@ -13,4 +13,12 @@
   <p>No product selected!</p>
 </ng-template>
 <h2>Favorites</h2>
+<!-- child component can use ProductsService because declared as provider -->
 <app-favorites></app-favorites>
+
+<ul>
+  <li *ngFor="let product of products | sort; let i=index"
+      (click)="selectedProduct = product">
+    <app-product-view [id]="i"></app-product-view>
+  </li>
+</ul>

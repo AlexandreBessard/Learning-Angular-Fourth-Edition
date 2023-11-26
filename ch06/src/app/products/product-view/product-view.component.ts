@@ -9,7 +9,9 @@ import { ProductViewService } from './product-view.service';
 })
 export class ProductViewComponent implements OnInit {
 
-  @Input() id = -1;
+  @Input()
+  id = -1;
+
   name = '';
 
   constructor(private productviewService: ProductViewService) { }

@@ -7,12 +7,18 @@ import { ProductsService } from '../products.service';
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  providers: [ProductsService]
+  // Allows to create one instance of that service, used by favorites.component.ts
+  providers: [
+    { provide: ProductsService, useClass: ProductsService }
+  ]
 })
 export class ProductListComponent implements OnInit, AfterViewInit {
 
   selectedProduct: Product | undefined;
-  @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
+
+  @ViewChild(ProductDetailComponent)
+  productDetail: ProductDetailComponent | undefined;
+
   products: Product[] = [];
 
   constructor(private productService: ProductsService) {}
@@ -23,6 +29,7 @@ export class ProductListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.productDetail) {
+      console.log("---> ");
       console.log(this.productDetail.product);
     }
   }
