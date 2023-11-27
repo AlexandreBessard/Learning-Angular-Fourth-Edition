@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 
@@ -7,7 +7,7 @@ import { ProductsService } from '../products.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   selectedProduct: Product | undefined;
   products: Product[] = [];
@@ -35,6 +35,10 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
     });
+  }
+
+  ngOnDestroy(): void {
+    // You could unsubscribe in this code block
   }
 
 }

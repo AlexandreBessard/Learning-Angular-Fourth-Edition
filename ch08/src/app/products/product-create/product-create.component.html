@@ -6,6 +6,7 @@
   <label for="price">Price</label>
   <input id="price" #price />
 </div>
+<!-- valueAsNumber because it is a string format by default -->
 <div>
   <button (click)="createProduct(name.value, price.valueAsNumber)">Create</button>
 </div>

@@ -19,7 +19,10 @@ export class ProductDetailComponent implements OnChanges {
 
   constructor(private productService: ProductsService, public authService: AuthService) { }
 
+  //  Called the input properties of a component change.
+  // When the input id changes, call this method
   ngOnChanges(): void {
+    // We do not subscribe or unsubscribe because we use async from the template
    this.product$ = this.productService.getProduct(this.id);
   }
 

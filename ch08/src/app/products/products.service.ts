@@ -19,6 +19,7 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
+    // <> means what type is returned by the get method
     return this.http.get<ProductDTO[]>(this.productsUrl).pipe(
       map(products => products.map(product => {
         return this.convertToProduct(product);
