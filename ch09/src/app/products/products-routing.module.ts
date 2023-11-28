@@ -5,11 +5,13 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductListComponent } from './product-list/product-list.component';
 
 const routes: Routes = [
-  { path: 'products', component: ProductListComponent },
+  { path: 'products', component: ProductListComponent, },
   {
     path: 'products/:id',
     component: ProductDetailComponent,
+    // resolve -> ensure that some data is retrieved before the ProductDetailComponent is activated and displayed
     resolve: {
+      // result set to an object where the 'key'('product') represents the name of the property available in the activated route.
       product: productDetailResolver
     }
   },

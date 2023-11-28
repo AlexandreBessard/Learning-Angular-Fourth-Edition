@@ -13,19 +13,30 @@ import { AuthService } from '../../auth/auth.service';
 export class ProductDetailComponent implements OnInit, OnChanges {
 
   @Input() product: Product | undefined;
-  @Output() bought = new EventEmitter();
-  @Output() deleted = new EventEmitter();
-  @Input() id = -1;
+
+  @Output()
+  bought = new EventEmitter();
+
+  @Output()
+  deleted = new EventEmitter();
+
+  @Input()
+  id = -1;
+
+  // used (observer) by async from the associated html template
   product$: Observable<Product> | undefined;
 
   constructor(
     private productService: ProductsService,
     public authService: AuthService,
+    // contains the paramMap observable which can be subscribed and get route parameter values.
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.product$ = this.route.data.pipe(
+      // The resolved data is available in the 'product' property of the route's data (see resolver when routing and loading this component)
+      // switchMap returns a new observable
       switchMap(data => of(data['product']))
     );
   }

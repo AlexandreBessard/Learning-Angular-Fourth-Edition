@@ -9,12 +9,19 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+    // Controls whether a route can be activated
     canActivate: [authGuard],
+    // when the user wants to quit the page, preventing navigation away from a route
     canDeactivate: [checkoutGuard]
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
+    // Lazy loading using module
+    //loadChildren: () => import('./about/about.module').then(m => m.AboutModuleComponent),
+    // using standalone, lazy loading
+    loadComponent: () => import('./about/about-info/about-info.component').then(c => c.AboutInfoComponent),
+    // Controls access to a route that loads a lazy-loaded module.
+    canLoad: [authGuard]
   },
   { path: '**', component: PageNotFoundComponent }
 ];
