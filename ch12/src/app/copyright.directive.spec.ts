@@ -19,7 +19,6 @@ describe('CopyrightDirective', () => {
       ]
     })
     .createComponent(TestHostComponent);
-
     container = fixture.nativeElement.querySelector('span');
   });
 
