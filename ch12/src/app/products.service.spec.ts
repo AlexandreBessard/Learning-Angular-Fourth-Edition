@@ -36,6 +36,8 @@ describe('ProductsService', () => {
   });
 
   afterEach(() => {
+    // After each test, we make sure that no unmatched requests are pending using the verify method
+    // inside an afterEach block
     httpTestingController.verify();
   });
 });

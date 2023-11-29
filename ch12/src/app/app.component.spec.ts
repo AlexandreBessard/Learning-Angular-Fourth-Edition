@@ -24,6 +24,8 @@ describe('AppComponent', () => {
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
+    // force the data bindings to be updated
+    // execute ngOnInit and then ngOnChanges
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('my-app app is running!');

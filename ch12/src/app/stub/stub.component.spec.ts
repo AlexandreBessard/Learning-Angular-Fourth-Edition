@@ -8,6 +8,7 @@ describe('StubComponent', () => {
   let fixture: ComponentFixture<StubComponent>;
   let msgDisplay: HTMLElement;
   let service: StubService;
+  // Partial because we want only to set the 'name' property initially.
   const serviceStub: Partial<StubService> = {
     name: 'Boothstomper'
   };

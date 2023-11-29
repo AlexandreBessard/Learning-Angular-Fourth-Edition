@@ -53,6 +53,7 @@ describe('BindingsComponent', () => {
 
   it('should emit the liked event using harness', async () => {
     const buttonHarness = await loader.getHarness(MatButtonHarness);
+    // We do not need to call the detectChanges method because the Angular CDK component harnesses trigger change detection automatically.
     await buttonHarness.click();
     expect(component.isFavorite).toBeTrue();
   });

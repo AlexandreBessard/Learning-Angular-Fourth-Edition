@@ -24,7 +24,9 @@ describe('SpyComponent', () => {
 
     it('should set the title', () => {
       const title = TestBed.inject(Title);
-      const spy = spyOn(title, 'setTitle');
+      const spy = spyOn(title,
+        // method to spy
+        'setTitle');
       fixture.detectChanges();
       expect(spy).toHaveBeenCalledWith('My Angular app');
     });

@@ -21,7 +21,9 @@ describe('AsyncComponent', () => {
 
   it('should get data with waitForAsync', waitForAsync(async() => {
     fixture.detectChanges();
+    // Returns a Promise which is resolved immediately when the data$ observable is complete
     await fixture.whenStable();
+    // Once Promise resolved, we call detectChanges() once more to trigger data binding and query the DOM accordingly
     fixture.detectChanges();
     const heroDisplay: HTMLElement[] = fixture.nativeElement.querySelectorAll('p');
     expect(heroDisplay.length).toBe(5);

@@ -3,7 +3,7 @@ import { StubService } from '../stub.service'
 
 @Component({
   selector: 'app-stub',
-  template: '<span>{{msg}}<span>'
+  template: '<span>{{msg}}</span>'
 })
 export class StubComponent implements OnInit {
 

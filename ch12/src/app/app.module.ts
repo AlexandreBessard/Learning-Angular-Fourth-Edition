@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CopyrightDirective } from './copyright.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import {ListPipe} from './list.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { SearchComponent } from './search/search.component';
     AsyncComponent,
     BindingsComponent,
     CopyrightDirective,
-    SearchComponent
+    SearchComponent, ListPipe
   ],
   imports: [
     BrowserModule,
